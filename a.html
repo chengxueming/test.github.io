@@ -1,0 +1,32 @@
+<head>
+<script type="text/javascript" src="./js/jquery.js"></script>
+
+</head>
+<body>
+<input type="file" id="file4"/>
+<button>submit</button>
+<script type="text/javascript">
+	$("button").click(function() {
+		// body...
+		file=document.getElementById("file4").files[0];
+		var reader =new FileReader();
+		reader.readAsText(file);
+		reader.onload = function() {
+			// body...
+			var content = this.result;
+			lines = content.split("\n");
+			var keys = lines[0].split(",");
+			var res = [];
+			for(var i = 1;i < lines.length;i++){
+				var row = {};
+				for(var k = 0;k < keys.length;k++){
+					line = lines[i].split(",");
+					row[keys[k]] = line[k];
+				}
+				res.push(row);
+			}
+			console.log(res);
+		}
+	});
+</script>
+</body>
