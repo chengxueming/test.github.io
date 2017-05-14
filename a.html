@@ -18,6 +18,9 @@
 			var keys = lines[0].split(",");
 			var res = [];
 			for(var i = 1;i < lines.length;i++){
+				if(lines[i].trim().length == 0){
+					continue;
+				}
 				var row = {};
 				for(var k = 0;k < keys.length;k++){
 					line = lines[i].split(",");
