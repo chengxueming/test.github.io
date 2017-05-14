@@ -1,35 +1,23 @@
+<!doctype html>
+<html >
 <head>
-<script type="text/javascript" src="./js/jquery.js"></script>
-
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 </head>
 <body>
-<input type="file" id="file4"/>
-<button>submit</button>
-<script type="text/javascript">
-	$("button").click(function() {
-		// body...
-		file=document.getElementById("file4").files[0];
-		var reader =new FileReader();
-		reader.readAsText(file);
-		reader.onload = function() {
-			// body...
-			var content = this.result;
-			lines = content.split("\n");
-			var keys = lines[0].split(",");
-			var res = [];
-			for(var i = 1;i < lines.length;i++){
-				if(lines[i].trim().length == 0){
-					continue;
-				}
-				var row = {};
-				for(var k = 0;k < keys.length;k++){
-					line = lines[i].split(",");
-					row[keys[k]] = line[k];
-				}
-				res.push(row);
-			}
-			console.log(res);
-		}
-	});
-</script>
+<div class="container">
+<div class="row">
+<div class="col-md-3">第一行第一列</div>
+<div class="col-md-3">第一行第2列</div>
+<div class="col-md-3">第一行第3列</div>
+<div class="col-md-3">第一行第4列</div>
+</div>
+<div class="row">第二行</div>
+<div class="row">第3行</div>
+
+<div class="row">第4行</div>
+
+</div>
 </body>
+
+</html>
